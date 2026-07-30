@@ -1,0 +1,101 @@
+ticket,category
+I have not received my invoice,Billing
+Payment failed but money deducted,Billing
+Need refund for subscription,Billing
+Charged twice for same order,Billing
+Update billing address,Billing
+Invoice amount is incorrect,Billing
+Refund still pending,Billing
+Cancel my premium plan,Billing
+Payment gateway not working,Billing
+Need GST invoice,Billing
+Subscription renewed unexpectedly,Billing
+Unable to download invoice,Billing
+Card charged after cancellation,Billing
+Billing statement missing,Billing
+Wrong tax applied,Billing
+Need payment receipt,Billing
+Duplicate payment issue,Billing
+Refund status update,Billing
+Payment confirmation missing,Billing
+Unable to add payment method,Billing
+Credit card declined,Billing
+Need invoice copy,Billing
+Auto debit issue,Billing
+Incorrect billing cycle,Billing
+Wallet balance not updated,Billing
+App crashes on login,Technical
+Cannot reset password,Technical
+Website is not loading,Technical
+Getting 500 server error,Technical
+Unable to upload files,Technical
+API is failing,Technical
+Two factor authentication not working,Technical
+Slow application performance,Technical
+Unable to install software,Technical
+Email notifications stopped,Technical
+Database connection error,Technical
+Page shows blank screen,Technical
+Login OTP not received,Technical
+Search feature broken,Technical
+Mobile app freezes,Technical
+Unable to export report,Technical
+Camera access issue,Technical
+Microphone not detected,Technical
+File download failed,Technical
+Broken link on dashboard,Technical
+Session expires quickly,Technical
+Bug after latest update,Technical
+Cannot connect to server,Technical
+Image upload fails,Technical
+Feature not responding,Technical
+Apply for annual leave,HR
+Interview schedule inquiry,HR
+Need employee benefits information,HR
+Update bank account details,HR
+Salary slip request,HR
+Resignation process query,HR
+Leave balance check,HR
+Work from home policy,HR
+Internship certificate request,HR
+Joining date confirmation,HR
+PF details required,HR
+Holiday calendar request,HR
+Training schedule inquiry,HR
+Offer letter request,HR
+Attendance correction,HR
+Medical insurance question,HR
+HR contact details,HR
+Promotion policy inquiry,HR
+Experience letter request,HR
+Travel reimbursement query,HR
+Recruitment status update,HR
+Background verification question,HR
+Employee ID request,HR
+Performance review schedule,HR
+Office onboarding process,HR
+What are your office hours?,General
+Where is your company located?,General
+How can I contact support?,General
+Do you work on weekends?,General
+Tell me about your services,General
+How to create an account?,General
+Need product information,General
+Can I schedule a demo?,General
+Where can I read documentation?,General
+What are your business timings?,General
+How to delete my account?,General
+How do I change my profile?,General
+Do you have a mobile app?,General
+What is your privacy policy?,General
+How to contact sales?,General
+Do you provide customer support 24/7?,General
+What plans do you offer?,General
+Where can I submit feedback?,General
+How to track announcements?,General
+Need company address,General
+Can I become a partner?,General
+How to subscribe to newsletter?,General
+Is there a free trial?,General
+What languages are supported?,General
+General inquiry about products,General
