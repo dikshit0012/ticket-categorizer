@@ -1,185 +1,124 @@
-# 🎫 Auto Email / Ticket Categorizer
+# Auto Email / Ticket Categorizer
 
-An NLP-based text classification system that automatically categorizes
-incoming customer support tickets into the correct department —
-**Billing**, **Technical**, **HR**, or **General** — complete with
-confidence scoring, human-review flagging, urgency/priority detection,
-and a live Streamlit demo.
+This project was created as part of an AI/ML internship assessment.
 
-Built as part of an **AI/ML Internship Assessment**.
+The goal of the project is to automatically classify customer support tickets into the correct department using Natural Language Processing (NLP) and Machine Learning.
 
----
+## Categories
 
-## 📌 Project Overview
+The model predicts one of the following categories:
 
-Customer support teams receive a constant stream of tickets that need to
-be routed to the right department. Doing this manually is slow and
-inconsistent. This project uses a classic, lightweight NLP pipeline —
-**TF-IDF + Multinomial Naive Bayes** — to automatically read a ticket's
-text and predict which department should handle it, along with a
-confidence score so uncertain predictions can be routed to a human
-instead of being auto-assigned.
+- Billing
+- Technical
+- HR
+- General
 
----
+## Features
 
-## ✨ Features
+- Text preprocessing
+- TF-IDF Vectorization
+- Multinomial Naive Bayes classifier
+- Model evaluation with accuracy and classification report
+- Confidence score for predictions
+- Human review suggestion for low-confidence predictions
+- Priority detection for urgent tickets
+- Simple Streamlit web interface
 
-- **Text preprocessing** — lowercasing, punctuation removal, whitespace
-  normalization.
-- **TF-IDF vectorization** of ticket text.
-- **Multinomial Naive Bayes** classifier trained on an 80/20 train/test
-  split.
-- **Full evaluation suite** — accuracy, precision, recall, F1-score,
-  classification report, and confusion matrix (saved as an image).
-- **Confidence score** for every prediction.
-- **Human Review flag** — if confidence is below 60%, the ticket is
-  marked `Needs Human Review` instead of being auto-routed.
-- **Priority detection** — tickets containing urgency keywords (e.g.
-  `urgent`, `critical`, `server down`, `payment failed`, `not working`,
-  `asap`, `immediately`) are flagged `Priority: High`.
-- **Streamlit web app** with a clean, modern UI and one-click sample
-  tickets for quick testing.
-- **Human-readable explanations** — tells you *why* a ticket was
-  classified the way it was, based on matched keywords.
+## Dataset
 
----
+A dummy dataset was created specifically for this assessment. It contains support tickets from four different categories:
 
-## 🛠 Technologies Used
+- Billing
+- Technical
+- HR
+- General
 
-| Tool / Library | Purpose |
-|---|---|
-| Python 3 | Core language |
-| Pandas | Data loading & manipulation |
-| NumPy | Numerical operations |
-| Scikit-learn | TF-IDF vectorizer, Naive Bayes model, evaluation metrics |
-| Joblib | Model & vectorizer persistence |
-| Matplotlib | Confusion matrix visualization |
-| Streamlit | Interactive web app / demo UI |
+## Technologies Used
 
----
+- Python
+- Pandas
+- Scikit-learn
+- Joblib
+- Streamlit
+- Matplotlib
 
-## 📊 Dataset Information
+## Project Structure
 
-- **File:** `dataset.csv`
-- **Rows:** 100 (25 per category)
-- **Columns:**
-  - `ticket` — the raw customer support ticket text
-  - `category` — one of `Billing`, `Technical`, `HR`, `General`
-- This is a **dummy dataset created for assessment purposes only** — no
-  external dataset is used or downloaded.
+```
+ticket-categorizer/
+│── dataset.csv
+│── train.py
+│── app.py
+│── model.pkl
+│── vectorizer.pkl
+│── confusion_matrix.png
+│── requirements.txt
+└── README.md
+```
 
----
+## How to Run
 
-## ⚙️ Installation
+### Install dependencies
 
-1. Clone this repository:
+```bash
+pip install -r requirements.txt
+```
 
-   ```bash
-   git clone https://github.com/<your-username>/ticket-categorizer.git
-   cd ticket-categorizer
-   ```
-
-2. (Optional but recommended) create a virtual environment:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
----
-
-## ▶️ How to Run
-
-**Step 1 — Train the model:**
+### Train the model
 
 ```bash
 python train.py
 ```
 
-This will:
-- Load and clean `dataset.csv`
-- Train the TF-IDF + Naive Bayes pipeline
-- Print accuracy, precision, recall, F1-score, classification report,
-  and confusion matrix to the console
-- Save `model.pkl`, `vectorizer.pkl`, and `confusion_matrix.png`
-
-**Step 2 — Launch the web app:**
+### Run the application
 
 ```bash
 streamlit run app.py
 ```
 
-Then open the local URL Streamlit prints (usually
-`http://localhost:8501`) in your browser.
+## Sample Inputs
 
----
-
-## 🧠 Model Used
-
-- **Vectorizer:** `TfidfVectorizer` (unigrams, up to 3000 features)
-- **Classifier:** `MultinomialNB` (Multinomial Naive Bayes), tuned with
-  a small Laplace smoothing value (`alpha=0.05`) to produce
-  well-calibrated confidence scores on this small dataset.
-- **Split:** 80% train / 20% test, stratified by category.
-
-Example prediction output:
-
+**Billing**
 ```
-Predicted Category: Technical
-Confidence: 94%
-Explanation:
-The ticket contains words such as login, error, crash, and password
-which are common in technical support requests.
+My payment failed but money was deducted.
 ```
 
----
-
-## 📁 Project Structure
-
+**Technical**
 ```
-ticket-categorizer/
-├── dataset.csv           # Training data (ticket, category)
-├── train.py               # Training & evaluation pipeline
-├── app.py                 # Streamlit web app
-├── model.pkl               # Saved trained Naive Bayes model
-├── vectorizer.pkl           # Saved TF-IDF vectorizer
-├── confusion_matrix.png    # Confusion matrix plot (generated by train.py)
-├── requirements.txt        # Python dependencies
-└── README.md                # Project documentation
+The application crashes after login.
 ```
 
+**HR**
+```
+I need my salary slip.
+```
+
+**General**
+```
+What are your office timings?
+```
+
+## Model
+
+- TF-IDF Vectorizer
+- Multinomial Naive Bayes
+
+## Results
+
+The model is trained on the dummy dataset and predicts the category of a support ticket along with:
+
+- Predicted category
+- Confidence score
+- Priority level
+- Human review suggestion (when confidence is low)
+
+## Future Improvements
+
+- Train on a larger dataset
+- Improve text preprocessing
+- Try advanced NLP models such as BERT
+- Deploy the application online
+
 ---
 
-## 🖼 Screenshots
-
-> _Add screenshots of the Streamlit app here after running it locally._
-
-| Home Screen | Prediction Result |
-|---|---|
-| `screenshots/home.png` | `screenshots/result.png` |
-
----
-
-## 🚀 Future Improvements
-
-- Expand the dataset with more real-world (anonymized) tickets for
-  better generalization.
-- Experiment with additional models (Logistic Regression, SVM, or a
-  fine-tuned transformer) and compare performance.
-- Add multi-label support for tickets that span more than one
-  department.
-- Add authentication and a database backend to log predictions and
-  support ongoing model retraining.
-- Deploy on Streamlit Community Cloud / Docker for public access.
-
----
-
-## 📄 License
-
-This project was created for educational / assessment purposes.
+This project was developed for an AI/ML internship assessment to demonstrate the basics of text classification using machine learning.
