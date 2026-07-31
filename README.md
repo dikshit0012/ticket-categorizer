@@ -4,6 +4,7 @@ This project was created as part of an AI/ML internship assessment.
 
 The goal of the project is to automatically classify customer support tickets into the correct department using Natural Language Processing (NLP) and Machine Learning.
 
+Live link streamlit - https://ticket-categorizer-lwxyp9xhnp2pgcnaez22gd.streamlit.app/
 ## Categories
 
 The model predicts one of the following categories:
